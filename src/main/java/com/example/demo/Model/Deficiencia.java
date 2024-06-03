@@ -1,4 +1,4 @@
-package com.Model;
+package com.example.demo.Model;
 
 import java.util.List;
 
@@ -29,10 +29,9 @@ import jakarta.persistence.Table;
          @JoinColumn(name = "categoria_id")
         private Categoria categoria;
 
-         @ManyToMany(mappedBy = "deficiencias")
+         @ManyToMany
         private List<Pessoa> pessoas;
     
-        
         public Long getId() {
             return id;
         }

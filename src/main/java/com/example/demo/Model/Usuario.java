@@ -1,4 +1,4 @@
-package com.Model;
+package com.example.demo.Model;
 
 import org.hibernate.annotations.ColumnDefault;
 
@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.List;
 
@@ -31,19 +32,7 @@ public class Usuario {
 
     @ManyToMany
     private List<NivelAcesso> nivelAcesso;
-
-    @ManyToMany
-    @JoinTable(name = "usuario_noticia",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "noticia_id"))
-    private List<Noticia> noticias;
-
-    @ManyToMany
-    @JoinTable(name = "usuario_nivel_acesso",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "nivel_acesso_id"))
-    private List<NivelAcesso> niveisAcesso;
-
+ 
     @Column(name = "ativo", nullable = true)
     @ColumnDefault("true")
     private boolean ativo = true;
@@ -52,12 +41,10 @@ public class Usuario {
         return id;
     }
 
-    
     public void setId(Long id) {
         this.id = id;
     }
 
-   
     public String getCpf() {
         return cpf;
     }

@@ -1,4 +1,4 @@
-package com.Model;
+package com.example.demo.Model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -33,7 +33,6 @@ public class Acesso {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-
 
     public Long getId() {
         return id;

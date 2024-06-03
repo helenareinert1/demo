@@ -1,11 +1,11 @@
-package com.Model;
+package com.example.demo.Model;
 
 import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.annotations.ColumnDefault;
 
-import com.Model.Deficiencia;
+import com.example.demo.Model.Deficiencia;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -51,18 +52,13 @@ public class Pessoa {
     @Column(name = "data_nascimento", nullable = false)
     private Date dataNascimento;
 
+    
+    @ManyToOne
+    @JoinColumn(name = "endereco_id")
+    private Endereco enderecos;
+
     @ManyToMany
-    @JoinTable(name = "pessoa_deficiencia",
-            joinColumns = @JoinColumn(name = "pessoa_id"),
-            inverseJoinColumns = @JoinColumn(name = "deficiencia_id"))
     private List<Deficiencia> deficiencias;
-
-    @ManyToMany
-    @JoinTable(name = "pessoa_endereco",
-            joinColumns = @JoinColumn(name = "pessoa_id"),
-            inverseJoinColumns = @JoinColumn(name = "endereco_id"))
-    private List<Endereco> enderecos;
-
 
     public Long getId() {
         return id;

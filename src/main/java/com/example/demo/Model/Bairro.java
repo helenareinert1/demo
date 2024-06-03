@@ -1,4 +1,4 @@
-package com.Model;
+package com.example.demo.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +24,6 @@ public class Bairro {
     @ManyToOne
     @JoinColumn(name = "cidade_id")
     private Cidade cidade;
-
 
     public Long getId() {
         return id;

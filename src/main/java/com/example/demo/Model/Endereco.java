@@ -1,4 +1,4 @@
-package com.Model;
+package com.example.demo.Model;
 
 import java.util.List;
 
@@ -32,14 +32,7 @@ public class Endereco {
     @Column(name = "cep", nullable = false, length = 9)
     private String cep;
 
-    @ManyToMany(mappedBy = "enderecos")
-    private List<Pessoa> pessoas;
-
-    @ManyToOne
-    @JoinColumn(name = "pontos_interesse_id")
-    private PontosDeInteresse pontosDeInteresse;
-
-    @OneToOne
+     @ManyToOne
     @JoinColumn(name = "bairro_id")
     private Bairro bairro;
 

@@ -1,4 +1,4 @@
-package com.Model;
+package com.example.demo.Model;
 
 import java.util.List;
 
@@ -11,21 +11,18 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "noticia")
-public class Noticia {
+@Table(name = "nivel_acesso")
+public class NivelAcesso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "descricao", nullable = false, length = 500)
-    private String descricao;
+    @Column(name = "tipo", nullable = false, length = 50)
+    private String tipo;
 
-    @Column(name = "img", nullable = true)
-    private String img;
-
-     @ManyToMany(mappedBy = "noticias")
+    @ManyToMany
     private List<Usuario> usuarios;
 
     public Long getId() {
@@ -36,20 +33,12 @@ public class Noticia {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
     

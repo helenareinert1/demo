@@ -1,10 +1,12 @@
-package com.Model;
+package com.example.demo.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +23,11 @@ public class PontosDeInteresse {
 
     @Column(name = "contato", nullable = true, length = 100)
     private String contato;
+
+     @ManyToOne
+    @JoinColumn(name = "endereco_id", nullable = false)
+    private Endereco endereco;
+
 
     public Long getId() {
         return id;
